@@ -1,8 +1,13 @@
 {
   "name": "switchbuffers",
   "displayName": "switchbuffers",
-  "description": "",
-  "version": "0.0.1",
+  "description": "Emacs like switch to buffer",
+  "publisher": "innerout",
+  "author": {
+    "name": "George Xanthakis",
+    "email": "kompiouterakias@hotmail.com"
+  },
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.77.0"
   },
@@ -45,5 +50,15 @@
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1",
     "@vscode/test-electron": "^2.3.0"
-  }
+  },
+  "license": "SEE LICENSE",
+  "bugs": {
+    "url": "https://github.com/innerout/switchbuffers/issues",
+    "email": "kompiouterakias@hotmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/innerout/switchbuffers.git"
+  },
+  "homepage": "https://github.com/innerout/switchbuffers/blob/main/README.md"
 }
