@@ -11,12 +11,10 @@ It iterates over all the open tabs in the current workspace and displays them in
 For this extension to work, you need to just install it and call the Switch Files command that is available in the command palette.
 I suggest you bind it to a key combination of your choice.
 
-## Known Issues
-
-For some reason, the extension may show hidden files in the list. I am working on fixing this issue.
-
-
 ## Release Notes
+### 1.1.0
+
+Fixes the issue with the extension displaying hidden buffer names that were not supposed to be displayed.
 
 ### 1.0.0
 
