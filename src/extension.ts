@@ -29,7 +29,6 @@ export function activate(context: vscode.ExtensionContext) {
 			});
 		});
 
-		vscode.window.showInformationMessage('Check the output for the list of open tabs.');
 		const quickPick = vscode.window.createQuickPick<OpenTab>();
 		quickPick.items = openTabs;
 		quickPick.placeholder = "Switch to file";
