@@ -1,25 +1,35 @@
-import path = require('path');
 import * as vscode from 'vscode';
 interface OpenTab extends vscode.QuickPickItem {
-	document: vscode.TextDocument;
+	label: string;
+}
+
+function getFilename(path: string): string {
+	let i = path.length - 1;
+	while (i >= 0 && path[i] !== '/') {
+		i--;
+	}
+	return path.slice(i + 1);
 }
 
 export function activate(context: vscode.ExtensionContext) {
-
 	let disposable = vscode.commands.registerCommand('switchbuffers.switchFiles', () => {
 		let openTabs: OpenTab[] = [];
+		const editorGroups = vscode.window.tabGroups.all;
+		let output = 'Open Tabs:\n';
 
-		for (const document of vscode.workspace.textDocuments) {
-			const uri = document.uri;
-			if (uri.scheme !== 'git') {
-				openTabs.push({
-					description: vscode.workspace.asRelativePath(document.fileName),
-					label: path.basename(document.fileName),
-					document: document
-				});
-			}
-		}
+		editorGroups.forEach(group => {
+			group.tabs.forEach(tab => {
+				if (tab.input instanceof vscode.TabInputText) {
+					const document = tab.input.uri;
+					output += `- ${document.path}\n`;
+					openTabs.push({
+						label: getFilename(document.path),
+					});
+				}
+			});
+		});
 
+		vscode.window.showInformationMessage('Check the output for the list of open tabs.');
 		const quickPick = vscode.window.createQuickPick<OpenTab>();
 		quickPick.items = openTabs;
 		quickPick.placeholder = "Switch to file";
@@ -28,14 +38,14 @@ export function activate(context: vscode.ExtensionContext) {
 
 		quickPick.onDidChangeSelection(([item]) => {
 			if (item) {
-				vscode.window.showTextDocument(item.document);
+				let uri = vscode.Uri.file(item.label);
+				vscode.window.showTextDocument(uri);
 				quickPick.hide();
 			}
 		});
 
 		quickPick.onDidHide(() => quickPick.dispose());
 		quickPick.show();
-
 	});
 
 	context.subscriptions.push(disposable);
