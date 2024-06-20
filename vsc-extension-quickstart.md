@@ -13,7 +13,11 @@
 
 * install the recommended extensions (amodio.tsl-problem-matcher and dbaeumer.vscode-eslint)
 
-
+```
+npm install
+npm run-script compile
+npx vsce publish
+```
 ## Get up and running straight away
 
 * Press `F5` to open a new window with your extension loaded.
