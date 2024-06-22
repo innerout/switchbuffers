@@ -7,7 +7,7 @@
     "name": "George Xanthakis",
     "email": "kompiouterakias@hotmail.com"
   },
-  "version": "1.1.0",
+  "version": "1.2.0",
   "engines": {
     "vscode": "^1.77.0"
   },
@@ -62,6 +62,7 @@
   },
   "homepage": "https://github.com/innerout/switchbuffers/blob/main/README.md",
   "dependencies": {
-    "@vscode/vsce": "^2.29.0"
+    "@vscode/vsce": "^2.29.0",
+    "fuzzysort": "^3.0.2"
   }
 }

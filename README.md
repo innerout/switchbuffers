@@ -12,6 +12,11 @@ For this extension to work, you need to just install it and call the Switch File
 I suggest you bind it to a key combination of your choice.
 
 ## Release Notes
+
+### 1.2.0
+
+Add fuzzy search to the buffer list. Highlighting the partial search terms does not work yet.
+
 ### 1.1.0
 
 Fixes the issue with the extension displaying hidden buffer names that were not supposed to be displayed.
